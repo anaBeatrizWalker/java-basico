@@ -95,8 +95,6 @@ public class Exercicio {
             System.out.println("Outubro");
         } else if (mes == 11) {
             System.out.println("Novembro");
-        } else if {
-            System.out.println("Dezembro");
         } else if (mes == 12) {
             System.out.println("Dezembro");
         } else {
