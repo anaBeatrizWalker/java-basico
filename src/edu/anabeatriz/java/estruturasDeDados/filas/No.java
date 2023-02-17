@@ -1,14 +1,14 @@
 package edu.anabeatriz.java.estruturasDeDados.filas;
 
-public class No {
+public class No<T> {
     
-    private Object conteudo;
-    private No refNo;
+    private T conteudo;
+    private No<T> refNo;
 
     public No() {
     }
 
-    public No(Object conteudo){
+    public No(T conteudo){
         this.refNo = null;
         this.conteudo = conteudo;
     }
@@ -17,15 +17,15 @@ public class No {
         return conteudo;
     }
 
-    public void setConteudo(Object conteudo) {
+    public void setConteudo(T conteudo) {
         this.conteudo = conteudo;
     }
 
-    public No getRefNo() {
+    public No<T> getRefNo() {
         return refNo;
     }
 
-    public void setRefNo(No refNo) {
+    public void setRefNo(No<T> refNo) {
         this.refNo = refNo;
     }
 

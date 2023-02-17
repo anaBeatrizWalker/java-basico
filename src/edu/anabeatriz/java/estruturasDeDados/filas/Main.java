@@ -3,12 +3,13 @@ package edu.anabeatriz.java.estruturasDeDados.filas;
 public class Main {
     public static void main(String[] args) {
         
-        Fila minhaFila = new Fila();
+        Fila<String> minhaFila = new Fila<>();
 
         minhaFila.enqueue("Primeiro");
         minhaFila.enqueue("Segundo");
         minhaFila.enqueue("Terceiro");
         minhaFila.enqueue("Quarto");
+        //minhaFila.enqueue(2); //Erro
 
         System.out.println(minhaFila); 
         //[No{objeto=Quarto}]--->[No{objeto=Terceiro}]--->[No{objeto=Segundo}]--->[No{objeto=Primeiro}]--->null
