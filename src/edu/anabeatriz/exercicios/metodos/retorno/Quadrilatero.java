@@ -1,0 +1,31 @@
+package edu.anabeatriz.exercicios.metodos.retorno;
+
+/* Recriar a aplicação de Quadriláteros agora com métodos que retornem valores */
+
+public class Quadrilatero {
+    
+    public static double area(double lado) {
+        return lado * lado;
+    }
+
+    public static double area(double lado1, double lado2) {
+        return lado1 * lado2;
+    }
+
+    public static double area(double baseMaior, double baseMenor, double altura) {
+        return ((baseMaior+baseMenor)*altura) / 2;
+    }
+
+    //Bônus
+
+    //Método sem retorno mas com return
+    public static void xpto() {
+        System.out.println("Antes");
+        return;
+    }
+
+    //Método com retorno compatível
+    public static double abc() {
+        return 1.6;
+    }
+}
