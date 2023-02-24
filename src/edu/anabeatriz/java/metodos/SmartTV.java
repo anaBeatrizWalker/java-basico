@@ -1,4 +1,4 @@
-package edu.anabeatriz.java.métodos;
+package edu.anabeatriz.java.metodos;
 
 public class SmartTV {
     /*
