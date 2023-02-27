@@ -1,4 +1,4 @@
-package edu.anabeatriz.java.orientacaoAObjetos.collections;
+package edu.anabeatriz.java.orientacaoAObjetos.collections.List;
 
 import java.util.ArrayList;
 import java.util.Collections;
