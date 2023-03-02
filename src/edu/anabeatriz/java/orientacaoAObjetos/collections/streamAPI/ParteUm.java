@@ -8,7 +8,7 @@ id = 1 - Contato = nome: Simba, numero: 2222;
 id = 4 - Contato = nome: Cami, numero: 5555;
 id = 3 - Contato = nome: Jon, numero: 1111;
 */
-public class a {
+public class ParteUm {
 
     public static void main(String[] args) {
 
