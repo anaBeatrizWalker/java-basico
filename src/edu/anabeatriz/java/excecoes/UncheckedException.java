@@ -6,21 +6,29 @@ import javax.swing.JOptionPane;
 public class UncheckedException {
     public static void main(String[] args) {
 
-        String a = JOptionPane.showInputDialog("Numerador: "); //ana
-        String b = JOptionPane.showInputDialog("Denominador: "); //3
+        boolean continueLooping = true;
+        do {
+            String a = JOptionPane.showInputDialog("Numerador: "); //ana
+            String b = JOptionPane.showInputDialog("Denominador: "); //3
+            
+            try {
+                //Código a ser executado
+                int resultado = dividir(Integer.parseInt(a), Integer.parseInt(b));
+                System.out.println("Resultado: " + resultado);
+                continueLooping = false;
 
-        int resultado = dividir(Integer.parseInt(a), Integer.parseInt(b));
-        System.out.println("Resultado: " + resultado);
+            } catch (NumberFormatException e) {
+                //Tratamento da Exception para string
+                JOptionPane.showMessageDialog(null, "Entrada inválida! Informe um número inteiro: " + e.getMessage());
 
-        /*
-        Exception in thread "main" java.lang.NumberFormatException: For input string: "ana" 
-            at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
-            at java.base/java.lang.Integer.parseInt(Integer.java:668)
-            at java.base/java.lang.Integer.parseInt(Integer.java:786)
-            at edu.anabeatriz.java.excecoes.UncheckedException.main(UncheckedException.java:12)
+            } catch (ArithmeticException e){
+                //Tratamento da Exception para denominador = 0
+                JOptionPane.showMessageDialog(null, "Impossível dividir um número por 0. ");
 
-        Nome da exceção: NumberFormatException
-        */
+            } finally {
+                System.out.println("Finalizando...");
+            }
+        } while (continueLooping);
     }
     public static int dividir(int a, int b) { return a / b;}
 }
