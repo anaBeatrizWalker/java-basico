@@ -3,45 +3,45 @@ package edu.anabeatriz.java.excecoes;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.OutputStreamWriter;
+
+import javax.swing.JOptionPane;
 
 //Imprimir um arquivo no console
 public class CheckedException {
     public static void main(String[] args) {
-        String nomeDoArquivo = "o-poder-do-habito-anotacoes.txt";
-        imprimirArquivoNoConsole(nomeDoArquivo);
+        String nomeDoArquivo = "o-poder-do-habdito-anotacoes.txt";
+        try {
+            imprimirArquivoNoConsole(nomeDoArquivo);
 
-        System.out.println("Mesmo sem exception, o programa continua...");
+        } catch (FileNotFoundException e){ //verifica nome errado
+            JOptionPane.showMessageDialog(null, "Nome do arquivo incorreto! " + e.getMessage());
+        
+        } catch (IOException e) { //verifica erros de carregamento, fechamento..
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro inesperado!" + e.getCause());
+            e.printStackTrace();
+
+        } finally {
+            System.out.println("Finally");
+        }
     }
-    public static void imprimirArquivoNoConsole(String nomeDoArquivo) {
+    public static void imprimirArquivoNoConsole(String nomeDoArquivo) throws IOException { //IOException é mãe de FileNotFoundException
         File file = new File(nomeDoArquivo);
 
-        BufferedReader br = new BufferedReader(new FileReader(file.getName())); //FileNotFoundException 
+        BufferedReader br = new BufferedReader(new FileReader(file.getName())); //FileNotFoundException
         String line = br.readLine(); //IOException
 
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         do {
-            bw.write(line); //IOException
-            bw.newLine(); //IOException
-            line=br.readLine(); //IOException
+            bw.write(line);
+            bw.newLine();
+            line=br.readLine();
         } while (line != null);
-        bw.flush(); //IOException
-        br.close(); //IOException
+        bw.flush();
+        br.close();
     }
-
-    /*
-    Exception in thread "main" java.lang.Error: Unresolved compilation problems: 
-        Unhandled exception type FileNotFoundException
-        Unhandled exception type IOException
-        Unhandled exception type IOException
-        Unhandled exception type IOException
-        Unhandled exception type IOException
-        Unhandled exception type IOException
-        Unhandled exception type IOException
-
-        at edu.anabeatriz.java.excecoes.CheckedException.imprimirArquivoNoConsole(CheckedException.java:20)
-        at edu.anabeatriz.java.excecoes.CheckedException.main(CheckedException.java:13) 
-    */
 }
